@@ -7,14 +7,25 @@ import { useState, useEffect } from "react";
 function Hero() {
   const [product, setProduct] = useState([]);
 
+ const categories = [
+  'furniture',
+  'fragrances',
+  'home-decoration'
+ ]
+
   useEffect(() => {
     const loadProduct = async () => {
       try {
-        const response = await fetch("https://dummyjson.com/products?limit=5");
+        const response = await fetch("https://dummyjson.com/products?limit=0");
 
         const data = await response.json();
-
-        setProduct(data.products.slice(0, 3));
+        let filnalProduct = categories.map((category)=>{
+          return data.products.find(p=> p.category === category)
+        })
+        
+        
+        
+        setProduct(filnalProduct);
       } catch (error) {
         console.error(error);
       }
@@ -27,7 +38,7 @@ function Hero() {
     <Swiper
       spaceBetween={20}
       slidesPerView={1}
-      className="h-[610px] w-full"
+      className="h-[590px] w-full"
       modules={[Pagination, Autoplay]}
       autoplay={{ delay: 3000 }}
       pagination={{ clickable: true }}
