@@ -23,10 +23,11 @@ function ShopByCategory({ products}) {
         </div>
         <div className="w-full h-[300px] flex  justify-evenly items-start pt-15 px-10 ">
             {products.map((p) =>{
+              
             let cleanCategory = p.category.replace('-', " ").toUpperCase()
             return(
           <div key={p.id} className="bg-slate-100 h-[175px] w-[140px] border-[1px] border-[#cccc] shadow-md rounded-md flex flex-col items-center justify-center gap-0 px-1  hover:-translate-y-2 transition 0.3s ease-in-out">
-            <img src={p.thumbnail} alt="" className="h-[95px] w-[95px]" />
+            <img src={p.thumbnail} alt="" className="h-[95px] w-[95px] object-cover" />
             <h2 className=" text-center font-bold text-gray-900 text-[13px] line ">
               {cleanCategory}
             </h2>
