@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Hero from "../Components/Hero";
 import ShopByCategory from "../Components/ShopByCategory";
 import FeatureSection from "../Components/FeatureSection";
+import PromotionalSection from "./PromotionalSection";
 
 function Homepage() {
   const [data, setData] = useState([]);
@@ -62,6 +63,7 @@ function Homepage() {
       <Hero />
       <ShopByCategory products={data}  />
       <FeatureSection productsCard={cardsData} />
+      <PromotionalSection />
     </>
   );
 }
